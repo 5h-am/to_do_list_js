@@ -245,8 +245,10 @@ task_list.addEventListener("click", (event)=> {
             position !== -1 ? task_array.splice(position,1) : task_array.splice(position,0);
             localStorage.setItem(`${user}_${category}_tasks`,JSON.stringify(task_array));
         }
-        if (event.target.closest(".tasks-box")) {
+        if (confirmation) {
+            if (event.target.closest(".tasks-box")) {
             event.target.closest(".tasks-box").remove();
+            }
         }
     }
 })
