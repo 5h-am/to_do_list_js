@@ -45,6 +45,7 @@ signup_btn.addEventListener("click", () => {
     let username = sessionStorage.getItem("username");
     let password = sessionStorage.getItem("password");
     let confirm_pwd = sessionStorage.getItem("confirm-pwd");
+    document.querySelectorAll(".credentials-up").forEach(e => {e.value = ""});
     if (password.length <= 3) {
         window.alert("The length of password should be minimum 4");
     }else if (username === null){
