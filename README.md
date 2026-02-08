@@ -55,22 +55,25 @@ A feature-rich, category-based to-do list web application with user authenticati
 
 ## 🎨 Demo
 
+### Website Demo
+[Checkout The Website](https://5h-am.github.io/to_do_list_js/)
+
 ### Screenshots
 
 **Login Screen**
-```
+
 ![Login Screen](todolist_signin.png)
-```
+
 
 **Category Selection**
-```
+
 ![Category Selection](todolist_categories.png)
-```
+
 
 **Task List View**
-```
+
 ![Task List View](todolist_tasks.png)
-```
+
 
 ## 🛠️ Technologies Used
 
@@ -94,7 +97,7 @@ A feature-rich, category-based to-do list web application with user authenticati
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/lets-do-it.git
+   git clone https://github.com/5h-am/to_do_list_js
    cd lets-do-it
    ```
 
