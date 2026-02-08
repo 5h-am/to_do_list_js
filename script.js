@@ -64,7 +64,7 @@ signup_btn.addEventListener("click", () => {
 signin_btn.addEventListener("click", ()=> {
     let username = sessionStorage.getItem("username");
     let password = sessionStorage.getItem("password");
-    if (!username in localStorage) {
+    if (!(username in localStorage)) {
         window.location.reload();
         window.alert("Username/Password Incorrect")
     } else if (password!==localStorage.getItem(username)) {
@@ -126,6 +126,7 @@ create_category.addEventListener("click", () => {
 
 categories_btn.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
+        task_list.innerHTML = "";
         hidden(task_categories);
         visible(to_do_list_box);
         let user = sessionStorage.getItem("user");
