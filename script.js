@@ -18,6 +18,7 @@ let task_input = document.querySelector(".task-input");
 let task_create = document.querySelector(".task-create");
 let completed_btn = document.querySelector(".completed-icon");
 let delete_btn = document.querySelector(".delete-icon");
+let exit_btn = document.querySelectorAll(".exit-btn");
 
 let default_categories = ["Work/Professional","Personal/Home","Health & Wellness","Financial","Social/Relationships","Learning/Growth","Long Term Goals"];
 function hidden (parent_element) {
@@ -108,14 +109,18 @@ create_category.addEventListener("click", () => {
     let user = sessionStorage.getItem("user");
     let new_category = sessionStorage.getItem('category_input');
     let categories_list = JSON.parse(localStorage.getItem(`${user}_cat`));
-    categories_list.push(new_category);
-    localStorage.setItem(`${user}_cat`,JSON.stringify(categories_list));
-    let btn = document.createElement("button")
-    btn.textContent = new_category;
-    btn.dataset.cat = new_category;
-    btn.classList.add("category-btn")
-    categories_btn.appendChild(btn);
     category_input.value = "";
+    if (!categories_list.includes(new_category)) {
+        categories_list.push(new_category);
+        localStorage.setItem(`${user}_cat`,JSON.stringify(categories_list));
+        let btn = document.createElement("button")
+        btn.textContent = new_category;
+        btn.dataset.cat = new_category;
+        btn.classList.add("category-btn")
+        categories_btn.appendChild(btn);
+    } else {
+        window.alert("This category is already present");
+    }  
 })
 
 categories_btn.addEventListener("click", (event) => {
@@ -160,12 +165,16 @@ task_create.onclick = () => {
     let task = sessionStorage.getItem("task_input")
     let category = sessionStorage.getItem("category");
     task_input.value = "";
-    let present = false
+    let present = false;
     if (`${user}_${category}_tasks` in localStorage) {
         let task_array = JSON.parse(localStorage.getItem(`${user}_${category}_tasks`));
-        task_array.push(task);
-        localStorage.setItem(`${user}_${category}_tasks`, JSON.stringify(task_array))
-        present = true;
+        if (!task_array.includes(task)) {  
+            task_array.push(task);
+            localStorage.setItem(`${user}_${category}_tasks`, JSON.stringify(task_array))
+            present = true;
+        } else {
+            window.alert("This task is already present");
+        }
     } else {
         localStorage.setItem(`${user}_${category}_tasks`, JSON.stringify([task]));
         let div = document.createElement("div")
@@ -239,5 +248,14 @@ task_list.addEventListener("click", (event)=> {
             event.target.closest(".tasks-box").remove();
         }
     }
+})
+exit_btn.forEach(e => {
+    e.onclick = () => {
+    let confimation = window.confirm("Do you want to Sign Out?")
+    if (confimation) {
+        window.location.reload();
+    }
+}
+
 })
 

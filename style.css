@@ -175,7 +175,6 @@ h1 {
 
 .delete-icon {
     width: 10%;
-    padding: 0;
     border: none;
     background: none;
     display: flex;
@@ -190,5 +189,16 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+.exit-btn {
+    border: 2px solid #221B4F;
+    background-color: #00303e;
+    border-radius: 1rem;
+    padding-inline: 1em;
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    margin-top: 1em;
 }
 
