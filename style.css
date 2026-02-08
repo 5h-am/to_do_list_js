@@ -207,3 +207,14 @@ h1 {
     opacity: 0.8;
     cursor: pointer;
 }
+
+.delete-icon img:hover,
+.completed-icon_img:hover,
+.category-btn:hover,
+.delete-icon img:focus-within,
+.completed-icon_img:focus-within
+.category-btn:focus-within{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
